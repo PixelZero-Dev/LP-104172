@@ -14,9 +14,12 @@ print('Primeira nota do aluno: ', primeira_nota)
 print('Segunda nota do aluno: ', segunda_nota)
 print('Terceira nota do aluno: ', terceira_nota)
 
-media = (primeira_nota) + (segunda_nota) + (terceira_nota) / 3
+media = (primeira_nota + segunda_nota + terceira_nota) / 3
 
 if media >= 7:
-    print('O Aluno está Aprovado. ')
+    resultado = ('O Aluno está Aprovado. ')
 else:
-    print('O Aluno está Reprovado ')
+    resultado = ('O Aluno está Reprovado ')
+
+print(f'Média: {media}')
+print(f'Resultado: {resultado}')
