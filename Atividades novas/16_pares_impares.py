@@ -1,7 +1,6 @@
 import os
 os.system('cls')
 
-# Constante.
 QUANTIDADE_REPETICOES = 5
 pares = 0
 impares = 0
@@ -15,5 +14,3 @@ for i in range(QUANTIDADE_REPETICOES):
 
 print(f'Quantidade de pares: {pares}')
 print(f'Quantidade de impares: {impares}')
-
-print('FIM')
