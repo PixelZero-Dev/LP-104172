@@ -1,0 +1,18 @@
+import os
+import time
+os.system('cls')
+
+print('=== DADOS REQUERIDOS SEGUE ABAIXO! === ')
+# AQUI VEM A VARIAVEL NOME, ONDE O INPUT SERVE SOMENTE PARA ESCREVER.
+nome = input('Digite seu nome: ')
+# AQUI VEM A VARIAVEL INT, ONDE A GENTE DIGITA ALGUM NUMERO E ESSE NUMERO SE TRANSFORMA EM ESCRITA COM O INPUT E E CONVERTIDO PARA O INT QUE NESSE CASO VIRA UM NUMERO INTEIRO
+idade = int(input('Digite sua idade: '))
+# AQUI ESTA A VARIAVEL FLOAT, ASSIM COMO O INT SERVE PARA ESCREVER UM NUMERO ONDE SERA CONVERTIDO EM NUMERO REAL.
+altura = float(input('Digite sua altura: '))
+
+# AQUI ESTA O PRINT, ONDE SERVE PARA ESTAR MOSTRANDO NO TERMINAL/TELA.
+print('\n === CONFERINDO ===')
+
+print(f'Nome: {nome}')
+print(f'Idade: {idade}')
+print(f'Altura: {altura}')
