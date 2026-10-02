@@ -1,24 +1,20 @@
 import os
 os.system('cls')
 
-login_salvo = '@SENAI123'
-senha_salva = '@AlunoSENAI'
-tentativas = 1
+print('= TELA PARA CADASTRO = ')
+login_cadastrado = input('Digite seu login: ')
+senha_cadastrada = input('Digite sua senha: ')
 
 while True:
-    if tentativas <= 3:
-        print(f'Tentativas: {tentativas}')
+        os.system('cls')
+        print('= TELA PRAR LOGIN =')
         login = input('Digite seu nome de usuario: ')
         senha = input('Digite sua senha: ')
-        tentativas += 1
-        if login == login_salvo and senha == senha_salva:
+
+        if login == login_cadastrado and senha == senha_cadastrada:
             print('Bem-Vindo!')
             break
         else:
             print('\n Login ou senha incorreto! Tente novamente.')
-            input('Deseja tentar novamente?')
+            input('Deseja tentar novamente? Press Enter...')
             os.system('cls')
-
-    else:
-        print('=FIM=')
-        break
