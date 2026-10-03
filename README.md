@@ -20,16 +20,16 @@ O repositório foi estruturado por módulos temáticos, seguindo a sequência pe
 
 ## 🗂️ Estrutura do Repositório
 
-| Pasta | Conteúdo |
-|-------|----------|
-| `1 - Variaveis` | Declaração de variáveis, tipos de dados estáticos e dinâmicos |
-| `2 - Entrada_de_Dados` | Entrada de dados com `input()` e manipulação de informações do usuário |
-| `3 - Operacoes_Matematicas` | Operações matemáticas, cálculo de média, desconto, salário, maior/menor valor |
-| `4 - If-Else` | Estruturas condicionais simples e compostas (if, else, elif) |
-| `5 - Switch_Case` | Uso do `match-case` (Python 3.10+), cardápio, dias da semana, formas de pagamento |
-| `6 - Laco_for` | Laços de repetição com `for` (tabuada, pares, ímpares, contagem regressiva, soma) |
-| `7 - Laco_while` | Laços de repetição com `while` (validação de notas, login, exemplos práticos) |
-| `Revisão` | Exercícios de revisão que consolidam os conteúdos anteriores |
+| Pasta                        | Conteúdo                                                                 |
+|:----------------------------:|:------------------------------------------------------------------------:|
+| 1 - Variaveis                | Declaração de variáveis, tipos de dados estáticos e dinâmicos            |
+| 2 - Entrada_de_Dados         | Entrada de dados com input() e manipulação de informações do usuário     |
+| 3 - Operacoes_Matematicas    | Operações matemáticas, cálculo de média, desconto, salário, maior/menor  |
+| 4 - If-Else                  | Estruturas condicionais simples e compostas (if, else, elif)             |
+| 5 - Switch_Case              | Uso do match-case (Python 3.10+), cardápio, dias da semana, formas de pagamento |
+| 6 - Laco_for                 | Laços de repetição com for (tabuada, pares, ímpares, contagem regressiva, soma) |
+| 7 - Laco_while               | Laços de repetição com while (validação de notas, login, exemplos práticos) |
+| Revisão                      | Exercícios de revisão que consolidam os conteúdos anteriores             |
 
 ---
 
