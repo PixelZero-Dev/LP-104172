@@ -1,20 +1,31 @@
 import os
 os.system('cls')
 
-tentativas = 0
-login_salvo = 'Marta'
-senha_salva = 'Marta@123'
-
-print('=== LOGIN ===')
+soma = 0
+quantidade_notas = 0
 
 while True:
-    os.system('cls')
-    login = input('Digite seu Login: ')
-    senha = input('Digite sua Senha: ')
-    if login == login_salvo and senha == senha_salva:
-        print('Acesso Liberado!')
-        break
-    else:
-        os.system('cls')
-        print('Login/Senha incorretos, Tente novamente.')
-        input('Pressione Enter...')
+    print("""
+    === MENU ===
+S   |  Adicionar nota   |
+N   |  Calcular media aritmética   |
+    """)
+
+    resposta = input('Deseja inserir uma nota?: ').lower()
+
+    match resposta:
+        case 's':
+            nota = float(input('Digite a nota: '))
+            soma += nota
+            quantidade_notas += 1
+        case 'n':
+            break
+        case _:
+            print('Opção inválida! \n')
+            input('Pressione ENTER para voltar ao menu...')
+
+if quantidade_notas == 0:
+    print('Nenhuma nota foi inserida.')
+else:
+    media = soma / quantidade_notas
+    print(f'A média aritmética das notas inseridas é: {media:.2f}')

@@ -1,9 +1,27 @@
 import os
 os.system('cls')
 
+def ler_inteiro(mensagem):
+    while True:
+        try:
+            return int(input(mensagem))
+        except ValueError:
+            print('Digite um número inteiro válido.')
+
+
+def ler_float(mensagem):
+    while True:
+        try:
+            return float(input(mensagem).replace(',', '.'))
+        except ValueError:
+            print('Digite um valor numérico válido.')
+
+
 dados = []
 
-print('''   === MENU ===
+while True:
+    os.system('cls')
+    print('''   === MENU ===
 
 Código  |  Descrição          |
 1       |  Adicionar Pessoa   |
@@ -12,62 +30,56 @@ Código  |  Descrição          |
 
 ''')
 
-codigo = int(input('Selecione uma opção: '))
+    codigo = input('Selecione uma opção: ').strip()
 
-while True:
+    if codigo == '1':
+        os.system('cls')
+        print('Insira os dados da pessoa.')
+        nome = input('Digite o nome da pessoa: ').strip()
+        idade = ler_inteiro('Digite sua idade: ')
+        sexo = input('Digite seu sexo (F/M): ').strip().upper()
+        salario = ler_float('Digite seu salário: ')
 
-    match codigo:
-        case 1:
-            os.system('cls')
-            print('Insira dos dados da pessoa.')
-            nome = input('Digite o nome da pessoa: ')
-            idade = int(input('Digite sua Idade: '))
-            sexo = input('Digite seu Sexo: ')
-            salario = float(input('Digite seu salario: '))
+        dados.append({
+            'nome': nome,
+            'idade': idade,
+            'sexo': sexo,
+            'salario': salario,
+        })
 
-            # Adicionando os dados na lista.
-            dados.append({
-                'Idade:': idade,
-                'Sexo:': sexo,
-                'Salario': salario,
-            })
-            
-            print('\nDados cadastrados com sucesso!')
-            input('Pressione ENTER para voltar ao menu...')
+        print('\nDados cadastrados com sucesso!')
+        input('Pressione ENTER para voltar ao menu...')
 
-            os.system('cls') # Limpa o terminal após adicionar, conforme pedido no enuciado.
+    elif codigo == '2':
+        os.system('cls')
+        print('=== RESULTADOS DA PESQUISA ===')
+        if dados:
+            soma_salarios = sum(pessoa['salario'] for pessoa in dados)
+            media_salario = soma_salarios / len(dados)
 
-        case 2:
-            os.system('cls')
-            print('=== RESULTADOS DA PESQUISA ===')
-            if len(dados) > 0:
-                soma_salarios = sum(p['salario'] for p in dados)
-                media_salario = soma_salarios / len(dados)
+            idades = [pessoa['idade'] for pessoa in dados]
+            maior_idade = max(idades)
+            menor_idade = min(idades)
 
-                idades = [p['idade'] for p in dados]
-                maior_idade = max(idades)
-                menor_idade = min(idades)
+            mulheres_5k = sum(
+                1
+                for pessoa in dados
+                if pessoa['sexo'] == 'F' and pessoa['salario'] >= 5000.00
+            )
 
-                mulheres_5k = sum(1 for p in dados if p['sexo'] == 'F' and p['salario'] >= 5000.00)
+            print(f'a) Média de salário do grupo: R$ {media_salario:.2f}')
+            print(f'b) Maior idade: {maior_idade} | Menor idade: {menor_idade}')
+            print(f'c) Mulheres com salário a partir de R$ 5.000,00: {mulheres_5k}')
+        else:
+            print('Nenhum dado registrado ainda.')
 
-                print(f'a) Média de salário do grupo: R$ {media_salario:.2f}')
-                print(f'b) Maior idade: {maior_idade} | Menor idade: {menor_idade}')
-                print(f'c) Mulheres com salário a partir de R$ 5.000,00: {mulheres_5k}')
-            else:
-                print('Nenhum dado registrado ainda.')
+        input('\nPressione ENTER para voltar ao menu...')
 
-                # Esta linha faz o programa pausar para você conseguir ler o resultado
-                input('\nPressione ENTER para voltar ao menu...')
-                os.system('cls')
+    elif codigo == '3':
+        os.system('cls')
+        print('Encerrando o programa...')
+        break
 
-            print() # Espaçamento.
-
-        case 3:
-            os.system('cls')
-            print('Encerrando o programa...')
-            break # O break aqui encerra o while True e fecha o programa.
-
-        case _:
-            os.system('cls')
-            print('Opção invalida! Tente novamente.')
-            input('Pressione ENTER para tentar novamente...')
+    else:
+        print('Opção inválida! Tente novamente.')
+        input('Pressione ENTER para voltar ao menu...')
