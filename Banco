@@ -1,0 +1,119 @@
+# ==============================================================================
+# ATIVIDADE EM DUPLA - BANCO COFRINHO (NovaByte Sistemas - Chamado #BC-001)
+# Integrante 1 (Piloto/Navegador): [Coloque seu nome aqui] - Funções: Menu, Saldo e Depósito
+# Integrante 2 (Piloto/Navegador): [Nome da dupla aqui] - Funções: Saque, Extrato e Main
+# ==============================================================================
+
+import os
+
+
+def limpar_tela():
+    os.system("cls" if os.name == "nt" else "clear")
+
+
+def pausar():
+    input("\nPressione Enter para continuar...")
+
+
+# ------------------------------------------------------------------------------
+# 01. FUNÇÕES
+# ------------------------------------------------------------------------------
+
+
+def mostrar_menu():
+    """Função sem retorno: exibe o menu principal do caixa eletrônico."""
+    print("=== BANCO COFRINHO · CAIXA ===")
+    print("1 - Ver saldo")
+    print("2 - Depositar")
+    print("3 - Sacar")
+    print("4 - Ver extrato")
+    print("0 - Sair")
+
+
+def mostrar_saldo(saldo):
+    """Função sem retorno: recebe o saldo e mostra em reais com 2 casas decimais."""
+    print(f"\nSaldo atual: R$ {saldo:.2f}")
+
+
+def depositar(saldo, extrato):
+    """Função com retorno: valida o valor, registra no extrato e devolve o novo saldo."""
+    valor = float(input("\nInforme o valor para depósito: R$ "))
+
+    if valor <= 0:
+        print("Operação recusada: o valor do depósito deve ser maior que zero.")
+        return saldo
+
+    saldo += valor
+    extrato.append(f"Depósito: R$ {valor:.2f}")
+    print(f"Depósito de R$ {valor:.2f} realizado com sucesso!")
+    return saldo
+
+
+def sacar(saldo, extrato):
+    """Função com retorno: valida valor e saldo suficiente, registra e devolve o novo saldo."""
+    valor = float(input("\nInforme o valor para saque: R$ "))
+
+    if valor <= 0:
+        print("Operação recusada: valor inválido (deve ser maior que zero).")
+        return saldo
+
+    if valor > saldo:
+        print("Operação recusada: saldo insuficiente.")
+        return saldo
+
+    saldo -= valor
+    extrato.append(f"Saque: R$ {valor:.2f}")
+    print(f"Saque de R$ {valor:.2f} realizado com sucesso!")
+    return saldo
+
+
+def mostrar_extrato(extrato, saldo):
+    """Função sem retorno: percorre a lista de extrato com laço e exibe o saldo."""
+    print("\n=== EXTRATO BANCÁRIO ===")
+    if len(extrato) == 0:
+        print("Nenhuma movimentação.")
+    else:
+        for movimentacao in extrato:
+            print(movimentacao)
+    print("-" * 24)
+    print(f"Saldo atual: R$ {saldo:.2f}")
+
+
+# ------------------------------------------------------------------------------
+# 02. DADOS INICIAIS
+# ------------------------------------------------------------------------------
+saldo = 500.00
+extrato = []
+opcao = -1
+
+# ------------------------------------------------------------------------------
+# 03. LAÇO DO MENU
+# ------------------------------------------------------------------------------
+while opcao != 0:
+    limpar_tela()
+    mostrar_menu()
+    opcao = int(input("Escolha uma opção: "))
+
+    # --------------------------------------------------------------------------
+    # 04. MATCH CASE (Regra de Ouro: cada case apenas chama a função)
+    # --------------------------------------------------------------------------
+    match opcao:
+        case 1:
+            mostrar_saldo(saldo)
+            pausar()
+        case 2:
+            saldo = depositar(saldo, extrato)
+            pausar()
+        case 3:
+            saldo = sacar(saldo, extrato)
+            pausar()
+        case 4:
+            mostrar_extrato(extrato, saldo)
+            pausar()
+        case 0:
+            print(
+                "\nObrigado por utilizar o Banco Cofrinho. Até logo!"
+            )
+        case _:
+            print("\nOpção inválida! Tente novamente.")
+            pausar()
